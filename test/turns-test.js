@@ -1,11 +1,11 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard } = require('../src/card');
+const { evaluateGuess } = require('../src/turns');
 
-describe('card', function() {
+describe('turns', function() {
   it('should be a function', function() {
-    expect(createCard).to.be.a('function');
+    expect(evaluateGuess).to.be.a('function');
   });
 
   it('should create a card and its properties', function() {
