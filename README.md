@@ -9,7 +9,7 @@ Follow these steps:
 Fork this project to your own Github account.
 Clone the repository to your local machine.
 cd into the project folder.
-run node.index.js in the Terminal to play the game.
+Run node.index.js in the Terminal to play the game.
 
 ## Preview of App:
 
@@ -22,6 +22,6 @@ I am a Front-End developer in the 7th week of an intensive Software Development 
 This was a solo project.
 
 ## Learning Goals:
-The goals for the project included: Solidify and demonstrate understanding of:
+The goals for the project included: 
 
 Contributing code to a partially constructed application. Following spec/prompts to make a working application. Writing modular, reusable code that follows SRP (Single Responsibility Principle). Implementing a robust testing suite using TDD.
