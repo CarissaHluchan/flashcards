@@ -22,12 +22,24 @@ function takeTurn(guess, round) {
     return result;
 }
 
-function calculatePercentCorrect() {
+function calculatePercentCorrect(round) {
+    if (round.turns === 0) {
+        return 1;
+    }
+    const turns = round.turns
+    const incorrectGuesses = round.incorrectGuesses.length
+    const correctGuesses = turns - incorrectGuesses
+    const correctGuessesPercent = correctGuesses/turns
+    return correctGuessesPercent;
+}
 
+function endRound(round) {
+    console.log(`** Round over! ** You answered ${calculatePercentCorrect(round) * 100}% of the questions correctly!`)
 }
 
 module.exports = {
     createRound,
     takeTurn,
-    calculatePercentCorrect
+    calculatePercentCorrect,
+    endRound
 }

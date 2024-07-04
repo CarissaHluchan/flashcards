@@ -3,7 +3,7 @@ const expect = chai.expect;
 const { createCard } = require('../src/card.js');
 const { createDeck, countCards } = require('../src/deck.js');
 
-const { createRound, takeTurn, calculatePercentCorrect } = require('../src/round');
+const { createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
 
 describe('round', function () {
     it('createRound', function () {
@@ -98,6 +98,44 @@ describe('round', function () {
     });
 
     it('should calculate and return the percentage of correct guesses', function() {
+        const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+        const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+
+        const deck = createDeck([card1, card2, card3]);
+
+        const round = createRound(deck);
+        const turns = round.turns;
+        const incorrectGuesses = round.incorrectGuesses;
+
+        const correctGuesses = calculatePercentCorrect(round);
+
+        expect(correctGuesses).to.equal(1);
+    });
+
+    it('should calculate and return the percentage of correct guesses for multiple turns', function() {
+        const card1 = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+        const card2 = createCard(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+        const card3 = createCard(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
+
+        const deck = createDeck([card1, card2, card3]);
+
+        const round = createRound(deck);
+
+        takeTurn('pug', round);
+        takeTurn('appendix', round);
+        takeTurn('Fitzgerald', round);
         
+        const turns = 3;
+        const incorrectGuesses = 2;
+        const correctGuesses = 1;
+
+        const correctGuessesPercent = calculatePercentCorrect(round);
+
+        expect(correctGuessesPercent).to.equal(correctGuesses/turns);
     })
+
+    it('endRound', function () {
+        expect(endRound).to.be.a('function');
+    });
 });
