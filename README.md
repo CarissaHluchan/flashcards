@@ -1,7 +1,7 @@
 # FlashCards
 
 ## Abstract:
-FlashCards is a trivia quiz game I built using JavaScript in Visual Studio Code. Once cloned down to a local machine a user can play the game from their terminal. The game consists of multiple-choice questions around coding concepts. The user is presented with 3 possible answers and chooses 1-3 options for their guess. The game then prints whether or not their guess was correct and calculates a percentage of correct guesses. There are 30 questions in the gameplay.
+FlashCards is a trivia quiz game I built using JavaScript in Visual Studio Code. Once cloned down to a local machine a user can play the game from their terminal. The game consists of multiple-choice questions around coding concepts. The user is presented with 3 possible answers and chooses 1-3 option for their guess. The game then prints whether or not their guess was correct and calculates a percentage of correct guesses. There are 30 questions in the gameplay.
 
 ## Installation Instructions:
 Follow these steps:
